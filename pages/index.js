@@ -6,22 +6,7 @@ import Voting from '../components/sections/Voting';
 export default function Home() {
   const db = getFirestore(app);
 
-  async function readDocument() {
-    const query = collection(db, "votes");
-    const querySnapshot = await getDocs(query);
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-    });
-    querySnapshot.docs.map((doc) => console.log(doc.data()));
-      // console.log(querySnapshot.data());
-  };
-
-  // readDocument();
-
   const addVoteToDocument = async (vote) => {
-    // console.log(vote);
-    // console.log(typeof(vote));
-
     if (vote == 'React') {
       await updateDoc(doc(db, "votes", "rahul"), {
         React: increment(1),
@@ -33,17 +18,11 @@ export default function Home() {
         'React Native': increment(1),
       });
     }
-
-    // await setDoc(doc(db, "votes", "rahul"), {
-    //   vote,
-    // });
   };
 
   return (
-    // <div>
     <div className={styles.container}>
       <Voting addVoteToDocument={addVoteToDocument} />
-      {/* <Button addVoteToDocument={addVoteToDocument} /> */}
     </div>
   )
 }
