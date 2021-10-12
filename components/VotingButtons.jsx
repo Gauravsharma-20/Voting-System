@@ -97,8 +97,8 @@ export default function VotingButtons({ value, setValue }) {
         {
             name: 'React',
             src: reactLogo,
-            color: "#61dafb",
-            bg: "#282c34",
+            color: "#fff",
+            bg: "#0056b3",
         },
         {
             name: 'Android',
