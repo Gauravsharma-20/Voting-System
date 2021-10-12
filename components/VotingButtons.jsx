@@ -62,6 +62,12 @@ const RadioCard = (props) => {
                     }}
                     my="auto"
                     ml="5px"
+                    w={{
+                        sm: "75px",
+                        base: "75px",
+                        md: "auto"
+                    }}
+                    lineHeight="1.9rem"
                 >
                     {props.children}
                 </Text>
