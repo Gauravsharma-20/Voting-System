@@ -1,7 +1,7 @@
 import {
     Box,
     Flex,
-    HStack,
+    Stack,
     Text,
     useColorModeValue,
     useRadio,
@@ -45,8 +45,8 @@ const RadioCard = (props) => {
                 textAlign="center"
                 direction={{
                     md: "row",
-                    sm: "column",
-                    base: "column",
+                    sm: "row",
+                    base: "row",
                 }}
             >
                 <Image 
@@ -57,9 +57,10 @@ const RadioCard = (props) => {
                 <Text
                     fontSize={{
                         md: "2rem",
-                        sm: "1.3rem",
-                        base: "1.3rem",
+                        sm: "1.6rem",
+                        base: "1.6rem",
                     }}
+                    my="auto"
                     ml="5px"
                 >
                     {props.children}
@@ -81,14 +82,19 @@ export default function VotingButtons({ value, setValue }) {
     const group = getRootProps();
 
     return (
-        <HStack
+        <Stack
             {...group}
             m="24px"
             mt="3vh"
             width="75vw"
             // height="60vh"
+            direction={{
+                md: "row",
+                sm: "column",
+                base: "column",
+            }}
             justifyContent="center"
-            alignItems="flex-start"
+            alignItems="center"
         >
             {options.map((value) => {
                 const radio = getRadioProps({ value })
@@ -98,6 +104,6 @@ export default function VotingButtons({ value, setValue }) {
                     </RadioCard>
                 );
             })}
-        </HStack>
+        </Stack>
     );
 };
