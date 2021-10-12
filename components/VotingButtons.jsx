@@ -10,9 +10,12 @@ import {
 import React from "react";
 import { colors } from '../theme';
 import Image from 'next/image';
-import logo from '../public/react.svg';
+import reactLogo from '../public/react.svg';
+import androidLogo from '../public/android.svg';
+import { FaAndroid, FaReact } from 'react-icons/fa';
 
 const RadioCard = (props) => {
+    console.log(props);
     const { getInputProps, getCheckboxProps } = useRadio(props);
     const input = getInputProps();
     const checkBox = getCheckboxProps();
@@ -32,10 +35,13 @@ const RadioCard = (props) => {
                 borderWidth="1px"
                 borderRadius="md"
                 boxShadow="md"
+                bg={props.bg}
+                color={props.color}
                 _checked={{
-                    bg: bg,
-                    color: "white",
-                    borderColor: "teal.600",
+                    // bg: bg,
+                    // color: "white",
+                    // borderColor: "teal.600",
+                    transform: "scale(1.2)",
                 }}
                 _focus={{
                     boxShadow: "outline",
@@ -48,12 +54,22 @@ const RadioCard = (props) => {
                     sm: "row",
                     base: "row",
                 }}
+                transition="all 0.2s ease-in-out"
+                _hover={{
+                    transform: "scale(1.2)",
+                }}
             >
-                <Image 
-                    src={logo}
+                {/* <Image 
+                    src={props.src}
                     width={50}
                     height={50}
-                />
+                /> */}
+                {
+                    props.children == "React" ? 
+                    <FaReact size="40px" /> 
+                    : 
+                    <FaAndroid size="40px" />
+                }
                 <Text
                     fontSize={{
                         md: "2rem",
@@ -63,8 +79,8 @@ const RadioCard = (props) => {
                     my="auto"
                     ml="5px"
                     w={{
-                        sm: "75px",
-                        base: "75px",
+                        sm: "26vw",
+                        base: "26vw",
                         md: "auto"
                     }}
                     lineHeight="1.9rem"
@@ -77,7 +93,21 @@ const RadioCard = (props) => {
 };
 
 export default function VotingButtons({ value, setValue }) {
-    const options = ['React', 'React Native'];
+    const options = [
+        {
+            name: 'React',
+            src: reactLogo,
+            color: "#61dafb",
+            bg: "#282c34",
+        },
+        {
+            name: 'Android',
+            src: androidLogo,
+            color: "#000",
+            bg: "#3ddc84",
+        }
+    ];
+    // const options = ["react", "android"];
 
     const { getRootProps, getRadioProps } = useRadioGroup({
         name: "framework",
@@ -101,12 +131,14 @@ export default function VotingButtons({ value, setValue }) {
             }}
             justifyContent="center"
             alignItems="center"
+            spacing={5}
         >
-            {options.map((value) => {
+            {options.map((option) => {
+                const value = option.name;
                 const radio = getRadioProps({ value })
                 return (
-                    <RadioCard key={value} {...radio} setValue={setValue}>
-                        {value}
+                    <RadioCard key={option.name} {...radio} setValue={setValue} color={option.color} bg={option.bg}>
+                        {option.name}
                     </RadioCard>
                 );
             })}

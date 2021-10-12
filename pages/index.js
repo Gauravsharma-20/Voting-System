@@ -10,12 +10,14 @@ export default function Home() {
     if (vote == 'React') {
       await updateDoc(doc(db, "votes", "rahul"), {
         React: increment(1),
-        'React Native': increment(0),
+        // 'React Native': increment(0),
+        Android: increment(0),
       });
-    } else if (vote == "React Native") {
+    } else if (vote == "Android") {
       await updateDoc(doc(db, "votes", "rahul"), {
         React: increment(0),
-        'React Native': increment(1),
+        Android: increment(1),
+        // 'React Native': increment(1),
       });
     }
   };
