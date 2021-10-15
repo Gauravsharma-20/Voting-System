@@ -42,6 +42,7 @@ const RadioCard = (props) => {
                     // color: "white",
                     // borderColor: "teal.600",
                     transform: "scale(1.2)",
+                    boxShadow: "outline"
                 }}
                 _focus={{
                     boxShadow: "outline",
