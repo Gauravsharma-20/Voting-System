@@ -59,9 +59,16 @@ export default function Voting() {
         <SectionContainer
             id="voting"
             name="voting"
-            headerText="Voting"
+            headerText="ACM CSS PEC Open-Source Voting"
             useHeaderStyle
         >
+            <Text
+                as="h2"
+                fontSize="1.5rem"
+                textAlign="center"
+            >
+                What would you like to learn and work on first?
+            </Text>
             {session && (
                 <Fragment>
                     <VotingButtons value={value} setValue={setValue} />
@@ -91,7 +98,7 @@ export default function Voting() {
                     <Text
                         ml={"7px"}
                     >
-                        Sign in with Google
+                        Sign in with Google to continue
                     </Text>
                 </Button>
             )}

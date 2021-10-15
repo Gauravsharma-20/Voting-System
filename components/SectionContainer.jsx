@@ -16,12 +16,13 @@ export default function SectionContainer({
     return (
         <div className={styles.container} {...props}>
             <Fade>
-                <div className={styles.column}>
+                <div className={styles.column} style={{ padding: "0 20px" }}> 
                     <Text
                         as="h1"
                         color={color}
                         mt={headerMt}
                         className={useHeaderStyle ? styles.header : ""}
+                        textAlign="center"
                     >
                         {headerText}
                     </Text>

@@ -7,7 +7,7 @@ import {
     useRadio,
     useRadioGroup,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { Fragment } from "react";
 import { colors } from '../theme';
 import Image from 'next/image';
 import reactLogo from '../public/react.svg';
@@ -95,17 +95,17 @@ const RadioCard = (props) => {
 export default function VotingButtons({ value, setValue }) {
     const options = [
         {
+            name: 'Android',
+            src: androidLogo,
+            color: "#000",
+            bg: "#3ddc84",
+        },
+        {
             name: 'React',
             src: reactLogo,
             color: "#fff",
             bg: "#0056b3",
         },
-        {
-            name: 'Android',
-            src: androidLogo,
-            color: "#000",
-            bg: "#3ddc84",
-        }
     ];
     // const options = ["react", "android"];
 
@@ -118,30 +118,39 @@ export default function VotingButtons({ value, setValue }) {
     const group = getRootProps();
 
     return (
-        <Stack
-            {...group}
-            m="24px"
-            mt="3vh"
-            width="75vw"
-            // height="60vh"
-            direction={{
-                md: "row",
-                sm: "column",
-                base: "column",
-            }}
-            justifyContent="center"
-            alignItems="center"
-            spacing={5}
-        >
-            {options.map((option) => {
-                const value = option.name;
-                const radio = getRadioProps({ value })
-                return (
-                    <RadioCard key={option.name} {...radio} setValue={setValue} color={option.color} bg={option.bg}>
-                        {option.name}
-                    </RadioCard>
-                );
-            })}
-        </Stack>
+        <Fragment>
+            {/* <Text
+                as="h2"
+                fontSize="1.5rem"
+                textAlign="center"
+            >
+                What would you like to learn and work on first?
+            </Text> */}
+            <Stack
+                {...group}
+                m="24px"
+                mt="3vh"
+                width="75vw"
+                // height="60vh"
+                direction={{
+                    md: "row",
+                    sm: "column",
+                    base: "column",
+                }}
+                justifyContent="center"
+                alignItems="center"
+                spacing={5}
+            >
+                {options.map((option) => {
+                    const value = option.name;
+                    const radio = getRadioProps({ value })
+                    return (
+                        <RadioCard key={option.name} {...radio} setValue={setValue} color={option.color} bg={option.bg}>
+                            {option.name}
+                        </RadioCard>
+                    );
+                })}
+            </Stack>
+        </Fragment>
     );
 };
