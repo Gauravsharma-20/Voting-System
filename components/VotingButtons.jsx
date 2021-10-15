@@ -111,7 +111,7 @@ export default function VotingButtons({ value, setValue }) {
 
     const { getRootProps, getRadioProps } = useRadioGroup({
         name: "framework",
-        defaultValue: "React",
+        defaultValue: "Android",
         onChange: console.log,
     });
 
@@ -139,7 +139,11 @@ export default function VotingButtons({ value, setValue }) {
                 }}
                 justifyContent="center"
                 alignItems="center"
-                spacing={5}
+                spacing={{
+                    md: 10,
+                    sm: 5,
+                    base: 5,
+                }}
             >
                 {options.map((option) => {
                     const value = option.name;
