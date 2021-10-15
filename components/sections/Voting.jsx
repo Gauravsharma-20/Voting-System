@@ -15,7 +15,6 @@ import { getFirestore, collection, doc, addDoc, setDoc, updateDoc, increment } f
 
 export default function Voting() {
     const [session, loading] = useSession();
-    console.log(session);
 
     const db = getFirestore(app);
 

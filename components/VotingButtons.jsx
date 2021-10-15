@@ -15,7 +15,6 @@ import androidLogo from '../public/android.svg';
 import { FaAndroid, FaReact } from 'react-icons/fa';
 
 const RadioCard = (props) => {
-    console.log(props);
     const { getInputProps, getCheckboxProps } = useRadio(props);
     const input = getInputProps();
     const checkBox = getCheckboxProps();
