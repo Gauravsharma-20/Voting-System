@@ -9,10 +9,11 @@ import {
 } from "@chakra-ui/react";
 import React, { Fragment } from "react";
 import { colors } from '../theme';
-import Image from 'next/image';
-import reactLogo from '../public/react.svg';
-import androidLogo from '../public/android.svg';
+// import Image from 'next/image';
+// import reactLogo from '../public/react.svg';
+// import androidLogo from '../public/android.svg';
 import { FaAndroid, FaReact } from 'react-icons/fa';
+import { SiFlutter } from 'react-icons/si';
 
 const RadioCard = (props) => {
     const { getInputProps, getCheckboxProps } = useRadio(props);
@@ -67,8 +68,10 @@ const RadioCard = (props) => {
                 {
                     props.children == "React" ? 
                     <FaReact size="40px" /> 
-                    : 
+                    : props.children == "Android" ?
                     <FaAndroid size="40px" />
+                    :
+                    <SiFlutter size="40px" />
                 }
                 <Text
                     fontSize={{
@@ -96,15 +99,23 @@ export default function VotingButtons({ value, setValue }) {
     const options = [
         {
             name: 'Android',
-            src: androidLogo,
+            // src: androidLogo,
             color: "#000",
             bg: "#3ddc84",
         },
         {
             name: 'React',
-            src: reactLogo,
+            // src: reactLogo,
             color: "#fff",
             bg: "#0056b3",
+        },
+        {
+            name: 'Flutter',
+            // src: reactLogo,
+            // color: "#075b9a",
+            color: "#fff",
+            bg: "#1967d2",
+            // bg: "#1389FD",
         },
     ];
     // const options = ["react", "android"];
