@@ -66,12 +66,12 @@ const RadioCard = (props) => {
                     height={50}
                 /> */}
                 {
-                    props.children == "React" ? 
-                    <FaReact size="40px" /> 
+                    props.children == "React Native" ? 
+                    <FaReact size="40px" style={{margin: "auto"}} /> 
                     : props.children == "Android" ?
-                    <FaAndroid size="40px" />
+                    <FaAndroid size="40px" style={{margin: "auto"}} />
                     :
-                    <SiFlutter size="40px" />
+                    <SiFlutter size="40px" style={{margin: "auto"}} />
                 }
                 <Text
                     fontSize={{
@@ -104,7 +104,7 @@ export default function VotingButtons({ value, setValue }) {
             bg: "#3ddc84",
         },
         {
-            name: 'React',
+            name: 'React Native',
             // src: reactLogo,
             color: "#fff",
             bg: "#0056b3",

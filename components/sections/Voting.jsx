@@ -66,7 +66,7 @@ export default function Voting() {
                 fontSize="1.5rem"
                 textAlign="center"
             >
-                What would you like to learn and work on first?
+                What do you want use for mobile development first?
             </Text>
             {session && (
                 <Fragment>
